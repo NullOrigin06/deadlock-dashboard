@@ -211,7 +211,9 @@ def draw_rag(
     Returns a matplotlib Figure.
     """
     fig, ax = plt.subplots(figsize=(8, 6))
-    ax.set_title(title, fontsize=14, fontweight="bold")
+    fig.patch.set_facecolor('#1e2430')
+    ax.set_facecolor('#1e2430')
+    ax.set_title(title, fontsize=14, fontweight="bold", color="#f1f5f9")
 
     pos = nx.spring_layout(graph, seed=42, k=2.0)
 
@@ -228,15 +230,15 @@ def draw_rag(
     # Draw nodes
     nx.draw_networkx_nodes(
         graph, pos, nodelist=process_nodes,
-        node_shape="o", node_color="#4FC3F7", node_size=800,
-        edgecolors="black", linewidths=1.5, ax=ax,
+        node_shape="o", node_color="#38bdf8", node_size=800,
+        edgecolors="#ffffff", linewidths=1.5, ax=ax,
     )
     nx.draw_networkx_nodes(
         graph, pos, nodelist=resource_nodes,
-        node_shape="s", node_color="#AED581", node_size=800,
-        edgecolors="black", linewidths=1.5, ax=ax,
+        node_shape="s", node_color="#4ade80", node_size=800,
+        edgecolors="#ffffff", linewidths=1.5, ax=ax,
     )
-    nx.draw_networkx_labels(graph, pos, font_size=11, font_weight="bold", ax=ax)
+    nx.draw_networkx_labels(graph, pos, font_size=11, font_weight="bold", font_color="#0f172a", ax=ax)
 
     # Draw edges by type
     for u, v, data in graph.edges(data=True):
@@ -244,15 +246,15 @@ def draw_rag(
         etype = data.get("etype", "request")
 
         if is_cycle_edge:
-            color = "#FF6F00"
+            color = "#f97316"
             width = 3.5
             style = "solid"
         elif etype == "assignment":
-            color = "#1565C0"
+            color = "#60a5fa"
             width = 2.0
             style = "solid"
         else:
-            color = "#C62828"
+            color = "#f87171"
             width = 2.0
             style = "dashed"
 
@@ -265,14 +267,17 @@ def draw_rag(
 
     # Legend
     legend_handles = [
-        mpatches.Patch(color="#4FC3F7", label="Process (circle)"),
-        mpatches.Patch(color="#AED581", label="Resource (square)"),
-        mpatches.Patch(color="#1565C0", label="Assignment edge (solid)"),
-        mpatches.Patch(color="#C62828", label="Request edge (dashed)"),
+        mpatches.Patch(color="#38bdf8", label="Process (circle)"),
+        mpatches.Patch(color="#4ade80", label="Resource (square)"),
+        mpatches.Patch(color="#60a5fa", label="Assignment edge (solid)"),
+        mpatches.Patch(color="#f87171", label="Request edge (dashed)"),
     ]
     if cycle_edge_set:
-        legend_handles.append(mpatches.Patch(color="#FF6F00", label="Cycle edge"))
-    ax.legend(handles=legend_handles, loc="upper left", fontsize=9)
+        legend_handles.append(mpatches.Patch(color="#f97316", label="Cycle edge"))
+    ax.legend(
+        handles=legend_handles, loc="upper left", fontsize=9,
+        facecolor="#0e1117", edgecolor="#334155", labelcolor="#f1f5f9",
+    )
 
     ax.axis("off")
     fig.tight_layout()

@@ -55,13 +55,13 @@ st.set_page_config(
 # ---------------------------------------------------------------------------
 st.markdown("""
 <style>
-.status-safe       { background:#c8e6c9; color:#1b5e20; padding:10px; border-radius:8px; font-weight:bold; }
-.status-unsafe     { background:#ffe0b2; color:#e65100; padding:10px; border-radius:8px; font-weight:bold; }
-.status-waiting    { background:#bbdefb; color:#0d47a1; padding:10px; border-radius:8px; font-weight:bold; }
-.status-denied     { background:#ffcdd2; color:#b71c1c; padding:10px; border-radius:8px; font-weight:bold; }
-.status-deadlocked { background:#ef9a9a; color:#b71c1c; padding:10px; border-radius:8px; font-weight:bold; }
-.status-invalid    { background:#e0e0e0; color:#424242; padding:10px; border-radius:8px; font-weight:bold; }
-.status-granted    { background:#a5d6a7; color:#1b5e20; padding:10px; border-radius:8px; font-weight:bold; }
+.status-safe       { background:#064e3b; color:#6ee7b7; border:1px solid #059669; padding:12px; border-radius:8px; font-weight:600; }
+.status-unsafe     { background:#7c2d12; color:#fdba74; border:1px solid #ea580c; padding:12px; border-radius:8px; font-weight:600; }
+.status-waiting    { background:#1e3a8a; color:#93c5fd; border:1px solid #2563eb; padding:12px; border-radius:8px; font-weight:600; }
+.status-denied     { background:#7f1d1d; color:#fca5a5; border:1px solid #dc2626; padding:12px; border-radius:8px; font-weight:600; }
+.status-deadlocked { background:#881337; color:#fda4af; border:1px solid #e11d48; padding:12px; border-radius:8px; font-weight:600; }
+.status-invalid    { background:#334155; color:#cbd5e1; border:1px solid #64748b; padding:12px; border-radius:8px; font-weight:600; }
+.status-granted    { background:#065f46; color:#a7f3d0; border:1px solid #10b981; padding:12px; border-radius:8px; font-weight:600; }
 </style>
 """, unsafe_allow_html=True)
 
