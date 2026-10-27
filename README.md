@@ -99,10 +99,11 @@ pytest tests/ -v
 
 | AI Tool Used | Purpose | Output Generated | Student Verification |
 |---|---|---|---|
-| | | | |
-| | | | |
-| | | | |
-| | | | |
+| **Google Antigravity IDE / Gemini 3.8 Flash** | Architecture & Interface Design | Decoupled modular design separating UI (`app.py`) from algorithms (`banker.py`, `detection.py`, `prevention.py`, `validation.py`). | Verified strict separation: zero algorithm calls in `app.py`. Standardized return dictionaries across all modules. |
+| **Google Antigravity IDE / Gemini 3.8 Flash** | Algorithmic Implementation | Implementations of Banker's safety algorithm, rollback on `DENIED_UNSAFE`, NetworkX RAG cycle detection, and Havender's resource ordering. | Hand-calculated safety algorithm traces against textbook benchmark; verified that multi-instance cycles do not necessarily deadlock. |
+| **Google Antigravity IDE / Gemini 3.8 Flash** | Automated Unit Testing | Scaffolded 47 `pytest` unit test cases across `test_banker.py`, `test_detection.py`, `test_prevention.py`, and `test_validation.py`. | Executed test suite locally (`python -m pytest -v`); achieved 100% pass rate (47/47) across all edge, boundary, and illegal input tests. |
+| **Google Antigravity IDE / Gemini 3.8 Flash** | Frontend UI & Interactive Visualization | Streamlit 4-tab interface, dynamic data editors, status banners, NetworkX RAG plots, and CSV export. | Verified interactive editing, state resets, and strict status invariant display (SAFE, UNSAFE, WAITING, DENIED_UNSAFE, DEADLOCKED). |
+| **Google Antigravity IDE / Gemini 3.8 Flash** | Analytical Evaluation & Report Generation | Completed Analytical Test-Case Table synthesis, Work vector traces, and publication-ready `.docx` report generation. | Audited all technical explanations against Operating System Concepts (Silberschatz) 10th Ed. and Coffman condition principles. |
 
 ---
 
